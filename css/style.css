@@ -294,6 +294,11 @@ h6 {
   }
 }
 
+#introtextcontainer {
+  width: 100% !important;
+  text-align: center !important;
+}
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -322,7 +327,7 @@ h6 {
 .main-nav a {
   display: block;
   position: relative;
-  color: rgb(44, 44, 44);
+  color: rgb(0, 25, 99);;
   padding: 10px 15px;
   transition: 0.3s;
   font-size: 14px;
@@ -334,7 +339,7 @@ h6 {
 .main-nav a:hover,
 .main-nav .active > a,
 .main-nav li:hover > a {
-  color: #00eba4;
+  color: rgb(202, 0, 0);
   text-decoration: none;
 }
 
@@ -436,7 +441,7 @@ h6 {
 .mobile-nav a:hover,
 .mobile-nav .active > a,
 .mobile-nav li:hover > a {
-  color: #8dc2fa;
+  color: #fa8d8d;
   text-decoration: none;
 }
 
@@ -1520,10 +1525,6 @@ h6 {
   }
 }
 
-@media (min-width: 992px) {
-  #intro .intro-info {
-    padding-top: 80px;
-  }
 
   #testimonials .testimonial-item p {
     width: 80%;
@@ -1572,11 +1573,6 @@ h6 {
   }
 }
 
-@media (max-width: 912px) {
-  #intro .intro-info {
-    text-align: center;
-  }
-}
 
 @media (max-width: 767px) {
   #intro {
@@ -1671,3 +1667,115 @@ hr.challengebreak {
 .highlightend {
   background-position: -100%;
 }
+
+/*--------------
+Kilter Challenges
+-------------*/
+
+#challengetypes {
+  padding: 60px 0 40px 0;
+  padding-bottom: 0px;
+  background-color: white;
+}
+
+#challengetypes .box {
+  height: 100%;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 7px;
+  margin: 0 10px 20px 10px;
+  box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  color: #413e66;
+  background-color: white;
+}
+
+#challengetypeheader {
+  margin-bottom: 3%;
+}
+#challengetypes .box:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+#challengetypes .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
+
+#challengetypes .title a {
+  color: white;
+}
+
+#challengetypes .box:hover .title a {
+  color: #4fd2c2;
+}
+
+#challengetypes .description {
+  font-size: 1rem;
+  line-height: 28px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.challengemarkers h4 {
+  text-align: center;
+  margin-bottom: 1vh;
+  color: #413e66;
+}
+
+#challengetypes .btn-get-started,
+#challengetypes .btn-services {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 32px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #4fd2c2;
+  color: #fff;
+}
+
+#challengetypes .options {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+#challengetypes .btn-get-started:hover,
+#challengetypes .btn-services:hover {
+  background: transparent;
+  color: #4fd2c2;
+  border: 2.5px solid #4fd2c2;
+}
+
+.centered {
+  float: none;
+  margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .secondboxrow {
+    margin-top: 3%;
+  }
+}
+
+.box p {
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 912px) {
+  .padopt {
+    padding: 30px;
+  }
+}
+
