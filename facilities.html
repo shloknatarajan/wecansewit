@@ -31,53 +31,141 @@
 </head>
 
 <body>
-    <!--==========================
-    Header
-    ============================-->
-    <header id="header">
+	<!--==========================
+	Header
+	============================-->
+	<header id="header">
 
-    <div id="topbar">
-        <!-- <div class="container">
-        <div class="social-links">
-            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-        </div>
-        </div> -->
-    </div>
+	<div id="topbar">
+		<!-- <div class="container">
+		<div class="social-links">
+			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+			<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+			<a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+			<a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+		</div>
+		</div> -->
+	</div>
 
-    <div class="container">
-        <div class="logo float-left">
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <h1 class="text-light"><a href="#intro" class="scrollto"><span>Étude</span></a></h1>
-        <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
-        </div>
+	<div class="container">
+		<div class="logo float-left">
+		<!-- Uncomment below if you prefer to use an image logo -->
+		<h1 class="text-light"><a href="#intro" class="scrollto"><span>Étude</span></a></h1>
+		<!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
+		</div>
 
-        <nav class="main-nav float-right d-none d-lg-block">
-        <ul>
-            <li class="active"><a href="#intro">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <!-- <li><a href="#team">Team</a></li> -->
-            <li><a href="#footer">Contact Us</a></li>
-        </ul>
-        </nav><!-- .main-nav -->
-    </div>
-    </header><!-- #header -->
+		<nav class="main-nav float-right d-none d-lg-block">
+		<ul>
+			<li class="active"><a href="#intro">Home</a></li>
+			<li><a href="#about">About Us</a></li>
+			<!-- <li><a href="#team">Team</a></li> -->
+			<li><a href="#footer">Contact Us</a></li>
+		</ul>
+		</nav><!-- .main-nav -->
+	</div>
+	</header><!-- #header -->
 
-    <!-- ==========================
-    Cause Intro
+	<!-- ==========================
+	Cause Intro
   ============================-->
-    <section id="facilitiesintro" class="clearfix">
-        <div id="facilitiescontainer" class="container-fluid">
-            <div class="row justify-content-center align-self-center text-center">
-                <div class="col-md-10 intro-info text-center mt-5">
-                    <h2>All facilities</h2>
-                    <hr class="challengebreak">
-                    </div>
-            </div>
-        </div>
-    </section> <!-- #intro -->
+	<section id="facilitiesintro" class="clearfix">
+		<div id="facilitiescontainer" class="container-fluid">
+			<div class="row justify-content-center align-self-center text-center">
+				<div class="col-md-10 intro-info text-center mt-5">
+					<h2>All facilities</h2>
+					<hr class="challengebreak">
+					</div>
+			</div>
+		</div>
+	</section> <!-- #intro -->
 
 </body>
+<head>
+	<title>Place Searches</title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+	<style>
+	  /* Always set the map height explicitly to define the size of the div
+	   * element that contains the map. */
+	  #map {
+		height: 100%;
+	  }
+	  /* Optional: Makes the sample page fill the window. */
+	  html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	  }
+	</style>
+	<script>
+	  // This example requires the Places library. Include the libraries=places
+	  // parameter when you first load the API. For example:
+	  // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+	  var map;
+	  var service;
+	  var infowindow;
+
+	  function initMap() {
+		var sydney = new google.maps.LatLng(40.71, -74.01);
+function wait(ms)
+{
+var d = new Date();
+var d2 = null;
+do { d2 = new Date(); }
+while(d2-d < ms);
+}
+		infowindow = new google.maps.InfoWindow();
+
+		map = new google.maps.Map(
+			document.getElementById('map'), {center: sydney, zoom: 6});
+
+		arrOfHosps = ["A.O. Fox Hospital", "A.O. Fox Hospital - Tri-Town Campus","Bassett Medical Center (The Mary Imogene Bassett Hospital)", "Cayuga Medical Center", "Chenango Memorial Hospital", "Cobleskill Regional Hospital", "FF Thompson Hospital", "Jones Memorial Hospital", "Lenox Hill Hospital", "Little Falls Hospital", "Montefiore Medical Center", "Newark-Wayne Community Hospital", "NewYork-Presbyterian Weill Cornell Medical Center", "Niagara Falls Memorial Medical Center", "Noyes Memorial Hospital", "Nyack Hospital", "NYC Health + Hospitals / Harlem","NYC Health + Hospitals - Harlem", "NYU Langone Hospitals", "O’Connor Hospital", "Richmond University Medical Center", "Samaritan Medical Center", "Schuyler Hospital", "St. James Hospital", "Staten Island University Hospital", "Strong Memorial Hospital"]
+		for(var i = 0; i < arrOfHosps.length; i++){
+			var hospital = arrOfHosps[i]
+		  	var request = {
+		  		query: hospital,
+		  		fields: ['name', "geometry",'formatted_address', "icon", 'formatted_phone_number'],
+			};
+
+			service = new google.maps.places.PlacesService(map);
+
+			service.findPlaceFromQuery(request, function(results, status) {
+		  		if (status === google.maps.places.PlacesServiceStatus.OK) {
+					for (var i = 0; i < results.length; i++) {
+			  			createMarker(results[i]);
+					}
+
+			// map.setCenter(results[0].geometry.location);
+		  		} else {
+		  			if(status == "OVER_QUERY_LIMIT"){
+		  				wait(250)
+		  			}
+		  			i = i - 1
+		  			console.log(status)
+		  			console.log(hospital)
+		  		}
+		  	});
+			}
+		}
+
+	  function createMarker(place) {
+	  	console.log(place)
+		var marker = new google.maps.Marker({
+		  map: map,
+		  position: place.geometry.location
+
+		});
+
+		google.maps.event.addListener(marker, 'click', function() {
+		  infowindow.setContent(place.name + "<br>" + place.formatted_address + "<br>" + place.formatted_phone_number);
+		  infowindow.open(map, this);
+		});
+	  }
+	</script>
+  </head>
+  <body>
+	<div id="map"></div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdca7snrbi0av8h6Df7DQDOzwid2Gg2G8&libraries=places&callback=initMap" async defer></script>
+  </body>
 </html>
