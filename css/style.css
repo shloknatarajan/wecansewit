@@ -259,9 +259,12 @@ h1 {
   background-color: rgb(202, 0, 0);
 }
 
-.introbuttons {
-  margin: 10px;
+@media screen and (max-width: 800px) {
+  .introbuttons {
+    margin: 6px;
+  }
 }
+
 
 /* #intro .intro-info .btn-get-started:hover,
 #intro .intro-info .btn-services:hover {
