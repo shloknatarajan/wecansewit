@@ -227,6 +227,12 @@ h1 {
   background-size: cover;
 }
 
+@media screen and (max-width: 768px) {
+  #intro {
+    height: 91vh !important;
+  }
+}
+
 #intro .intro-info h2 {
   color: rgb(123, 78, 78);
   margin-bottom: 40px;
