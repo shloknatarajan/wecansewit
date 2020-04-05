@@ -125,7 +125,7 @@ while(d2-d < ms);
 			var hospital = arrOfHosps[i]
 		  	var request = {
 		  		query: hospital,
-		  		fields: ['name', "geometry",'formatted_address', "icon", 'formatted_phone_number'],
+		  		fields: ['name', "geometry",'formatted_address', "icon",],
 			};
 
 			service = new google.maps.places.PlacesService(map);
@@ -158,7 +158,7 @@ while(d2-d < ms);
 		});
 
 		google.maps.event.addListener(marker, 'click', function() {
-		  infowindow.setContent(place.name + "<br>" + place.formatted_address + "<br>" + place.formatted_phone_number);
+		  infowindow.setContent(place.name + "<br>" + place.formatted_address);
 		  infowindow.open(map, this);
 		});
 	  }
