@@ -1732,6 +1732,7 @@ Our Mission
   width: 50%;
   margin: auto;
   text-align: center;
+  min-height: 30vh;
 }
 
 @media screen and (max-width: 912px) {
@@ -1773,4 +1774,57 @@ Our Mission
   .topspacer {
     padding-top: 90px;
   }
+}
+
+/*--------------
+Facilities Page
+-------------*/
+#allfacilities {
+  padding: 20px;
+  text-align: center;
+}
+
+#facilitywrapper {
+  display: inline-block;
+  text-align: left;
+}
+
+@media screen and (min-width: 912px) {
+  #facilitywrapper {
+    width: 85%;
+  }
+}
+
+.subinfo {
+  padding-left: 15px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin: 0px;  
+}
+
+.subinfo p {
+  margin: 5px;
+  font-size: 18px;
+}
+
+.facilityname {
+  color: rgb(0, 148, 253);
+  font-weight: 300;
+  font-size: 32px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.statewrapper {
+  justify-content: center;
+  text-align: center;
+}
+
+hr.statebreak {
+  border: 0;
+  height: 1.5px;
+  width: 30%;
+  margin-top: 0;
+  margin-bottom: 3vh;
+  background-image: linear-gradient(to right, #413e6610, #102344, #413e6610);
 }
